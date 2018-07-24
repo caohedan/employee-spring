@@ -10,24 +10,24 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping(path="/employee")
+    @PostMapping(path="/employees")
     public Employee addEmployee(@RequestBody Employee employee){
         return employeeService.add(employee);
     }
-    @GetMapping(path="/employee")
+    @GetMapping(path="/employees")
     public List<Employee> findAllEmployees(){
         return  employeeService.getAllEmployees();
     }
-    @GetMapping(path="/employee/{employeeId}")
+    @GetMapping(path="/employees/{employeeId}")
     public Employee findEmployee(@PathVariable int employeeId){
         Employee employee = employeeService.getEmoloyee(employeeId);
         return  employee;
     }
-    @DeleteMapping(path="/employee/{employeeId}")
+    @DeleteMapping(path="/employees/{employeeId}")
     public void deleteEmployee(@PathVariable int employeeId){
        employeeService.deleteEmployee(employeeId);
     }
-    @PutMapping(path="employee/{employeeId}")
+    @PutMapping(path="employees/{employeeId}")
     public Employee updateEmployee(@RequestBody Employee employee)
     {
         return  employeeService.updateEmployee(employee);
