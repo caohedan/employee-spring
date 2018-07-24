@@ -11,7 +11,7 @@ import java.util.Map;
 public class EmployeeService {
     private Map<Integer,Employee> employees ;
 
-    public EmployeeService(List<Employee> employees) {
+    public EmployeeService() {
         this.employees = new HashMap<>();
     }
 
@@ -21,14 +21,25 @@ public class EmployeeService {
     }
 
     public List<Employee> getAllEmployees() {
+        return converMapToList(employees);
+    }
+
+    private  List<Employee> converMapToList(Map<Integer,Employee>employees) {
         List<Employee> employeesList = new ArrayList<>();
         for (Integer key : employees.keySet()) {
             employeesList.add (employees.get(key));
         }
-        return  employeesList;
+        return employeesList;
     }
 
     public Employee getEmoloyee(int id) {
         return employees.get(id);
+    }
+
+    public List<Employee> deleteEmployee(int employeeId) {
+
+        employees.remove(employeeId);
+        System.out.println(employees.size());
+        return  converMapToList(employees);
     }
 }

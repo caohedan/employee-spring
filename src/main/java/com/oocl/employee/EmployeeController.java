@@ -21,8 +21,12 @@ public class EmployeeController {
     @GetMapping(path="/employee/{employeeId}")
     public Employee findEmployee(@PathVariable int employeeId){
         Employee employee = employeeService.getEmoloyee(employeeId);
-        System.out.println(employeeId);
         return  employee;
     }
+    @DeleteMapping(path="/employee/{employeeId}")
+    public void deleteEmployee(@PathVariable int employeeId){
+       employeeService.deleteEmployee(employeeId);
+    }
+//    @PutMapping(path="employee/{employeeId}?name={name}")
 
 }
