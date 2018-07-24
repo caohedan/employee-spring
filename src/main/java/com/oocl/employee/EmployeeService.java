@@ -42,4 +42,9 @@ public class EmployeeService {
         System.out.println(employees.size());
         return  converMapToList(employees);
     }
+
+    public Employee updateEmployee(Employee employee) {
+        employees.replace(employee.getId(),employee);
+        return employees.get(employee.getId());
+    }
 }

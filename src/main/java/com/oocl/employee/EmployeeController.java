@@ -27,6 +27,14 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable int employeeId){
        employeeService.deleteEmployee(employeeId);
     }
-//    @PutMapping(path="employee/{employeeId}?name={name}")
+    @PutMapping(path="employee/{employeeId}")
+    public Employee updateEmployee(@RequestBody Employee employee)
+    {
+        return  employeeService.updateEmployee(employee);
+
+    }
+
+
+
 
 }
