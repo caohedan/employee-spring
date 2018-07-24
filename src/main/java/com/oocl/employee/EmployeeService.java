@@ -18,4 +18,7 @@ public class EmployeeService {
         return employee;
     }
 
+    public List<Employee> getAllEmployees() {
+        return employees;
+    }
 }

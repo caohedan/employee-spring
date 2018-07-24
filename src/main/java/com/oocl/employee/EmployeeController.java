@@ -1,9 +1,9 @@
 package com.oocl.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class EmployeeController {
@@ -14,7 +14,9 @@ public class EmployeeController {
     public Employee addEmployee(@RequestBody Employee employee){
         return employeeService.add(employee);
     }
-
-
+    @GetMapping(path="/employee")
+    public List<Employee> findAllEmployees(){
+        return  employeeService.getAllEmployees();
+    }
 
 }
