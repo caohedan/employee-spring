@@ -18,5 +18,11 @@ public class EmployeeController {
     public List<Employee> findAllEmployees(){
         return  employeeService.getAllEmployees();
     }
+    @GetMapping(path="/employee/{employeeId}")
+    public Employee findEmployee(@PathVariable int employeeId){
+        Employee employee = employeeService.getEmoloyee(employeeId);
+        System.out.println(employeeId);
+        return  employee;
+    }
 
 }
